@@ -1,18 +1,22 @@
-function myFunction()
-{
-    const meassage=document.getElementById("p01");
-    meassage.innerHTML="";
 
-    let x=document.getElementById('demo').value;
-   
-    if(x.trim() == "")meassage.innerHTML=("input is empty"); 
-    else{
-       
-        x=Number(x);
-        
-        if(isNaN(x)) meassage.innerHTML=("input is not valid"); 
-        else if(x<5) meassage.innerHTML=("number is low");
-        else meassage.innerHTML=("number is large"); 
+    function append(char) 
+    {
+        document.getElementById("display").value+=char;
     }
 
-}
+    function cleardisplay() 
+    {
+        document.getElementById("display").value=" ";
+    }
+    
+    function calculate()
+    {
+        const expression=document.getElementById("display").value;
+        try{
+            const result=eval(expression);
+            document.getElementById("display").value=result;
+        }
+        catch{
+            document.getElementById("display").value="Error";
+        }
+    }
